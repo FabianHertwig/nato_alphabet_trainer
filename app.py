@@ -94,11 +94,8 @@ with st.sidebar:
 
     st.header("Info")
     st.markdown("[ICAO / NATO Alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet)")
-    st.write("Made by @fabianhertwig")
-
-    if st.checkbox("Show Debug", False):
-        st.write(st.session_state)
-
+    st.markdown("[Source code on Github](https://github.com/FabianHertwig/nato_alphabet_trainer)")
+    st.write("Made by [@fabianhertwig](https://twitter.com/fabianhertwig)")
 
 
 st.title("ICAO / NATO Alphabet Trainer")
