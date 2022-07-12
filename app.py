@@ -1,6 +1,7 @@
 import streamlit as st
 from collections import Counter
 import numpy as np
+import pandas as pd
 from numpy.random import choice
 
 alphabet = {
@@ -92,6 +93,7 @@ with st.sidebar:
     show_balloons=st.checkbox("🎈", True)
 
     st.header("Info")
+    st.markdown("[ICAO / NATO Alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet)")
     st.write("Made by @fabianhertwig")
 
     if st.checkbox("Show Debug", False):
@@ -100,13 +102,18 @@ with st.sidebar:
 
 
 st.title("ICAO / NATO Alphabet Trainer")
-st.subheader("Write the full name of the following letter")
+st.subheader("Write the spelling of the following letter")
 
 letter_to_test = pick_test_letter(alphabet, st.session_state.correct_answers, st.session_state.last_tested_letter)
 solutions = alphabet[letter_to_test]
 
 st.title(letter_to_test)
 input = st.text_input("", key="input", on_change=check_input, args=[solutions, letter_to_test, show_balloons])
-
 st.text(st.session_state.hint)
 
+df = pd.DataFrame.from_dict(st.session_state.correct_answers, orient="index")
+df = df.rename(columns= {0: "Correct Answers"})
+df["Correct Answers"] = df["Correct Answers"] - 1
+
+st.write("Correct Answers")
+st.bar_chart(df)
