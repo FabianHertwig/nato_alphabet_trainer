@@ -93,7 +93,7 @@ with st.sidebar:
     show_balloons=st.checkbox("🎈", True)
 
     st.header("Info")
-    st.markdown("[ICAO / NATO Alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet)")
+    st.markdown("This Streamlit helps you train the [ICAO / NATO alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet). It shows you a letter and you need to write down the spelling. It tracks your correct answers and asks you wrong ones more often.")
     st.markdown("[Source code on Github](https://github.com/FabianHertwig/nato_alphabet_trainer)")
     st.write("Made by [@fabianhertwig](https://twitter.com/fabianhertwig)")
 
